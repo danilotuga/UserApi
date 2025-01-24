@@ -154,16 +154,17 @@ async login(req,res){
             res.status(200)
             res.json({token:token})
         }else{
-            res.status(406)
-            res.json("Senha Incorreta")
+            res.status(401)
+            res.json({err: "Senha Incorreta"})
         }
 
 
     
     
     }else{
-        res.json({status: false})
         res.status(406)
+        res.json({status: false, err: "O usuário não existe"})
+
     }
     
 }
